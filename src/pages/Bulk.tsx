@@ -13,12 +13,32 @@ const Bulk: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isBulkDownloading, setIsBulkDownloading] = useState(false);
   const [downloadingIndex, setDownloadingIndex] = useState<number | null>(null);
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useState('1');
 
   const generateBulkResumes = async () => {
+    const numCount = parseInt(count);
+    if (isNaN(numCount)) {
+      toast.error('Invalid number', {
+        description: 'Please enter a valid number.'
+      });
+      return;
+    }
+    if (numCount < 1) {
+      toast.error('Invalid number', {
+        description: 'Please enter a number greater than 0.'
+      });
+      return;
+    }
+    if (numCount > 50) {
+      toast.error('Too many resumes', {
+        description: 'Maximum 50 resumes can be generated at once.'
+      });
+      return;
+    }
+
     try {
       setIsLoading(true);
-      const promises = Array(count).fill(null).map(() => fetchRandomUserData());
+      const promises = Array(numCount).fill(null).map(() => fetchRandomUserData());
       const results = await Promise.all(promises);
       setResumeData(results);
     } catch (error) {
@@ -134,12 +154,14 @@ const Bulk: React.FC = () => {
         <div className="flex flex-col items-center justify-center gap-4 animate-slide-up">
           <div className="flex items-center gap-4">
             <input
-              type="number"
-              min="1"
-              max="15"
+              type="text"
               value={count}
-              onChange={(e) => setCount(Math.min(15, Math.max(1, parseInt(e.target.value) || 1)))}
+              onChange={(e) => {
+                const value = e.target.value.replace(/[^0-9]/g, '');
+                setCount(value);
+              }}
               className="w-20 px-3 py-2 border rounded-md"
+              placeholder="1-50"
             />
             <PrimaryButton
               onClick={generateBulkResumes}
@@ -229,7 +251,7 @@ const Bulk: React.FC = () => {
                 No resumes generated yet
               </h3>
               <p className="mt-2 text-sm text-muted-foreground">
-                Select the number of resumes (max 15) and click generate to create multiple resumes at once.
+                Select the number of resumes (max 50) and click generate to create multiple resumes at once.
               </p>
             </div>
           </div>
