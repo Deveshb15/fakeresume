@@ -9,7 +9,7 @@ const About: React.FC = () => {
     <Layout>
       <div className="max-w-3xl mx-auto space-y-10">
         <div className="text-center space-y-3 animate-slide-down">
-          <h1 className="font-bold tracking-tight">About ResumeCraft</h1>
+          <h1 className="font-bold tracking-tight">About FakeResume</h1>
           <p className="text-muted-foreground">
             Minimal, elegant resume generation with pixel-perfect design.
           </p>
@@ -17,7 +17,7 @@ const About: React.FC = () => {
         
         <div className="prose prose-gray mx-auto animate-fade-in">
           <p className="text-lg leading-relaxed">
-            ResumeCraft was designed with a focus on simplicity, elegance, and functionality. 
+            FakeResume was designed with a focus on simplicity, elegance, and functionality. 
             Inspired by the design principles of minimalism and clarity, this tool generates 
             professional resumes with random data that you can use for various purposes.
           </p>
@@ -46,7 +46,7 @@ const About: React.FC = () => {
           
           <h3 className="text-xl font-medium">How It Works</h3>
           <p>
-            ResumeCraft uses the <a href="https://randomuser.me/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+            FakeResume uses the <a href="https://randomuser.me/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
               Random User API
             </a> to generate realistic user profiles. We combine this data with carefully crafted professional 
             descriptions, job titles, and skills to create complete resumes that look authentic.

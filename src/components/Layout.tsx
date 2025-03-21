@@ -17,7 +17,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             to="/" 
             className="text-xl font-medium text-foreground/90 hover:text-foreground transition-colors"
           >
-            ResumeCraft
+            FakeResume
           </Link>
           <nav className="flex items-center space-x-6">
             <NavLink to="/" current={location.pathname === "/"}>
@@ -36,7 +36,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       
       <footer className="border-t border-border/40 py-6 backdrop-blur-md bg-background/80">
         <div className="container mx-auto px-4 md:px-6 text-center text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} ResumeCraft. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} FakeResume. All rights reserved.</p>
           <p className="mt-1">Designed with precision.</p>
         </div>
       </footer>

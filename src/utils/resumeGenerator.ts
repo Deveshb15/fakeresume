@@ -1,4 +1,3 @@
-
 import { toast } from 'sonner';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
@@ -35,6 +34,20 @@ export interface ResumeData {
   education: Education[];
   workExperience: WorkExperience[];
   skills: Skill[];
+}
+
+// Define type for Random User API response
+interface RandomUser {
+  name: {
+    first: string;
+    last: string;
+  };
+  email: string;
+  phone: string;
+  location: {
+    city: string;
+    country: string;
+  };
 }
 
 // Format date to a more readable format
@@ -74,7 +87,7 @@ export const fetchRandomUserData = async (): Promise<ResumeData> => {
 };
 
 // Generate fake resume data based on the random user
-const generateResumeData = (user: any): ResumeData => {
+const generateResumeData = (user: RandomUser): ResumeData => {
   const now = new Date();
   const fiveYearsAgo = new Date();
   fiveYearsAgo.setFullYear(now.getFullYear() - 5);
