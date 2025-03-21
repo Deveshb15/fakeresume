@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -23,8 +22,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <NavLink to="/" current={location.pathname === "/"}>
               Create
             </NavLink>
-            <NavLink to="/about" current={location.pathname === "/about"}>
-              About
+            <NavLink to="/bulk" current={location.pathname === "/bulk"}>
+              Bulk
             </NavLink>
           </nav>
         </div>

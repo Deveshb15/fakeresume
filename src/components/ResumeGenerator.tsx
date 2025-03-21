@@ -55,7 +55,6 @@ const ResumeGenerator: React.FC = () => {
         </h1>
         <p className="text-muted-foreground max-w-2xl mx-auto animate-slide-down">
           Generate a professional, beautifully designed resume with random data in seconds. 
-          <span className="block mt-1 text-blue-500/80">Powered by AI technology.</span>
         </p>
       </div>
       
